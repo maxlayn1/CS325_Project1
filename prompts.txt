@@ -1,7 +1,4 @@
-#this file contains the prompts fed to the local LLM to respond to
-
-“A shocking Chinese AI advancement called DeepSeek is sending US stocks
-plunging”
+“A shocking Chinese AI advancement called DeepSeek is sending US stocks plunging”
 
 “As sales slump, Kohl’s turns to a new CEO to bring back customers”
 

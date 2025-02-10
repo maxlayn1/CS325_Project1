@@ -6,12 +6,24 @@
 
 def main(): #call functions from here 
     print('main')
+    read_prompt_file()
 
 def choose_LLM(): #ask user whether they want to use Gemma2-2b, or Phi3
-    print('which LLM would you like to use?')
+    LLM = input('Choose and LLM: 1. Gemma2-2b   2. Phi3')
+    if LLM == '1':
+        print('Using Gemma2-2b')
+    elif LLM == '2':
+        print('Using Phi3')
+    else:
+        print('Error, invalid input')
+        exit
 
-def read_prompt_file(): #read text file containing prompts
-    print('read from prompt file')
+def read_prompt_file(): #read text file containing prompts, adding all the lines into a list
+    with open('prompts.txt', 'r') as file:
+        lines = file.readlines()
+        lines = [empty for empty in lines if empty.strip()] #trims empty lines from txt prompt file
+    for line in lines:
+        print(line)
 
 def pass_prompt_to_LLM(): #ask LLM to interpret prompt sufficiently
     print('passing prompt to LLM')
