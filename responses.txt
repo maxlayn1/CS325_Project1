@@ -1,0 +1,2 @@
+THIS FILE WILL STORE LLM'S RESPONSES TO PROMPTS FROM THE PROMPT TEXT FILE YOU GIVE IT
+-------------------------------------------------------------------------------------
