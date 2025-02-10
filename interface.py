@@ -7,7 +7,7 @@ def main(): #call functions from here
     print(response)
 
 def choose_LLM(): #ask user whether they want to use Gemma2-2b, or Phi3
-    LLM = input('Choose and LLM: 1. Gemma2-2b   2. Phi3')
+    LLM = input('Choose an LLM: 1. Gemma2-2b   2. Phi3\n')
     if LLM == '1':
         print('Using Gemma2-2b')
         return 'Gemma2-2b'
