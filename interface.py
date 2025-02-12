@@ -29,7 +29,7 @@ def pass_prompt_to_LLM(prompt_list, LLM_name):                              #ask
     try:
         response_list = []
         for prompt in prompt_list:
-            LLM_PROMPT = 'Read the following news headline and determine if it is positive, negative, or neutral. When responding use only these three words, and respond with only one word.'
+            LLM_PROMPT = 'Read the following news headline and determine if it is positive, negative, or neutral. When responding use only these three words, and respond with only one word. Do NOT give more than one word.'
             command = "ollama run " + LLM_name + " \"" + LLM_PROMPT + prompt + "\"" + "\n"
             result = subprocess.run(command, shell=True, text=True, capture_output=True, check=True)
             response_list.append(clean_LLM_response(result.stdout))          #adds response to a list after cleaning it
