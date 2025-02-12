@@ -22,7 +22,8 @@ def choose_LLM():                                                           #ask
 def read_prompt_file():                                                     #read prompts.txt, returning all the prompts in a list
     with open('prompts.txt', 'r') as file:
         lines = file.readlines()
-        lines = [empty for empty in lines if empty.strip()]                 #trims empty lines from prompts.txt
+        lines = [empty for empty in lines if empty.strip()]
+        lines.pop()                 #trims empty lines from prompts.txt
     return lines
 
 def pass_prompt_to_LLM(prompt_list, LLM_name):                              #ask LLM to interpret prompt thru user's terminal
