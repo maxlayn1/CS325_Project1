@@ -8,14 +8,14 @@ def main():
     store_LLM_response(clean_response_list)                                 #LLM responses stored in responses.txt
     print('LLM RESPONSES STORED')                                           #indicate to the user that the script is done
 
-def choose_LLM():                                                           #ask whether user wants to use Gemma2-2b or deepseek-r1
-    LLM = input('Choose an LLM: 1. Gemma2-2b   2. deepseek-r1\n')
+def choose_LLM():                                                           #ask whether user wants to use Gemma2-2b or llama3.2
+    LLM = input('Choose an LLM: 1. Gemma2-2b   2. llama3.2\n')
     if LLM == '1':
         print('Using Gemma2-2b')
         return 'gemma2:2b'                                                  #user choose gemma2-2b
     elif LLM == '2':
-        print('Using deepseek-r1')
-        return 'deepseek-r1:1.5b'                                           #user choose deepseek-r1
+        print('Using llama3.2')
+        return 'llama3.2:3b'                                                #user choose llama3.2
     else:
         raise SystemExit(1)                                                 #crash program if unexpected input
 

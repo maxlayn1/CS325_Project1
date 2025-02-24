@@ -7,11 +7,11 @@ Run the following commands on Linux/WSL
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
 ```
-2. Installs deepseek-r1 local LLM
+2. Installs llama3.2 local LLM (Meta)
 ```bash
-ollama pull deepseek-r1:1.5b
+ollama pull llama3.2:3b
 ```
-3. Installs Gemma2-2b local LLM
+3. Installs Gemma2-2b local LLM (Google)
 ```bash
 ollama pull gemma2:2b
 ```
