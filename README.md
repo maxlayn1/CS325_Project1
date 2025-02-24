@@ -7,13 +7,13 @@ Run the following commands on Linux/WSL
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
 ```
-2. Installs Phi3 local LLM (Microsoft)
+2. Installs deepseek-r1 local LLM
 ```bash
-ollama run phi3
+ollama pull deepseek-r1:1.5b
 ```
-3. Installs Gemma2-2b local LLM (Google)
+3. Installs Gemma2-2b local LLM
 ```bash
-ollama run gemma2:2b
+ollama pull gemma2:2b
 ```
 ## Usage
 Copy and paste your headlines into prompts.txt. Each headline should take up a single line. Then run the following command from directory named "CS325_Project1":
