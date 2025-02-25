@@ -16,7 +16,7 @@ ollama pull llama3.2:3b
 ollama pull gemma2:2b
 ```
 ## Usage
-Copy and paste your headlines into prompts.txt. Each headline should take up a single line. Then run the following command from directory named "CS325_Project1":
+Copy and paste your headlines into prompts.txt. Each headline should take up a single line. Then run the following command from cloned directory:
 ```bash
 python interface.py
 ```
