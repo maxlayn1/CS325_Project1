@@ -3,7 +3,7 @@ import time                                                                 #all
 
 def main():           
     LLM_name = choose_LLM()                                                 #user chooses which LLM they want to use
-    prompt_list = read_prompt_file()                                        #parse prompt file
+    prompt_list = read_prompt_file()     
     clean_response_list = pass_prompt_to_LLM(prompt_list, LLM_name)         #prompt is passed to LLM and result is stored
     store_LLM_response(clean_response_list)                                 #LLM responses stored in responses.txt
     print('LLM RESPONSES STORED')                                           #indicate to the user that the script is done
@@ -22,9 +22,8 @@ def choose_LLM():                                                           #ask
 def read_prompt_file():                                                     #read prompts.txt, returning all the prompts in a list
     with open('prompts.txt', 'r') as file:
         lines = file.readlines()
-        lines = [empty for empty in lines if empty.strip()]                 #trims empty lines from prompts.txt
-        lines.pop()                                                         #excludes comment at the top of prompts.txt from evaluation
-    return lines
+        lines = [line for line in lines if line.strip() and not line.strip().startswith('#')]  # skip empty lines and lines starting with '#'   
+        return lines
 
 def pass_prompt_to_LLM(prompt_list, LLM_name):                              #ask LLM to interpret prompt thru user's terminal
     try:

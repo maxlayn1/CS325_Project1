@@ -1,4 +1,4 @@
-#this file should contain urls to sites to be scraped and fed to the interface
+#-----FILE SHOULD CONTAIN URLS TO BUSINESS SECTIONS WITH HEADLINES-----
 
 https://www.chicagotribune.com/business/
 
