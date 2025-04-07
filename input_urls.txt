@@ -1,0 +1,7 @@
+#this file should contain urls to sites to be scraped and fed to the interface
+
+https://www.chicagotribune.com/business/
+
+https://www.ibjonline.com/illinois-business-news/
+
+https://www.chicagobusiness.com/topic/news
