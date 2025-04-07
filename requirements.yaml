@@ -24,4 +24,8 @@ dependencies:
   - wheel=0.45.1=py39h06a4308_0
   - xz=5.4.6=h5eee18b_1
   - zlib=1.2.13=h5eee18b_1
+  - pip:
+      - beautifulsoup4==4.13.3
+      - soupsieve==2.6
+      - typing-extensions==4.13.1
 prefix: /home/maxlayn1/miniconda3/envs/CS325_Project1
