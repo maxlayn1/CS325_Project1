@@ -26,6 +26,11 @@ dependencies:
   - zlib=1.2.13=h5eee18b_1
   - pip:
       - beautifulsoup4==4.13.3
+      - certifi==2025.1.31
+      - charset-normalizer==3.4.1
+      - idna==3.10
+      - requests==2.32.3
       - soupsieve==2.6
       - typing-extensions==4.13.1
+      - urllib3==2.3.0
 prefix: /home/maxlayn1/miniconda3/envs/CS325_Project1
