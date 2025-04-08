@@ -1,0 +1,39 @@
+#-----THIS FILE SHOULD CONTAIN HEADLINES SCRAPED BY BS4-----
+
+-------HEADLINES SCRAPED AT 09:04:59------
+-------HEADLINES SCRAPED AT 09:15:06------
+-------HEADLINES SCRAPED AT 09:18:08------
+-------HEADLINES SCRAPED AT 09:26:18------
+<span class="dfm-title metered">
+			🏠 CHA staff payouts		</span>
+<span class="dfm-title metered">
+			🏙️ ‘Teen takeovers’ downtown		</span>
+<span class="dfm-title metered">
+			🪿 Wrigley Field goose		</span>
+<span class="dfm-title metered">
+			🏠 Kyle Hendricks home listing		</span>
+<span class="dfm-title free">
+			✍️ Asking Eric		</span>
+<span class="dfm-title free">
+			📆 Today in History		</span>
+<span class="dfm-title metered">
+			Wind Creek opens hotel Friday at Chicago-area’s fastest growing casino		</span>
+<span class="dfm-title metered">
+			Crystal Lake 4-bedroom home with 3 wood fireplaces: $1.2M		</span>
+<span class="dfm-title metered">
+			Trump orders new CFIUS review of Nippon, U.S. Steel deal		</span>
+<span class="dfm-title metered">
+			President Trump threatens more tariffs on China as global markets plunge		</span>
+<span class="dfm-title metered">
+			US stocks dip after careening through a manic day following Trump’s latest tariff threat		</span>
+<span class="dfm-title metered">
+			Ulta Beauty pauses expansion of Target locations		</span>
+<span class="dfm-title metered">
+			DePaul men’s basketball coach Chris Holtmann sells Ohio home for $3.5M		</span>
+<span class="dfm-title metered">
+			Fatal accident on Lake Shore Drive leaves one dead, police say		</span>
+<span class="dfm-title metered">
+			$2.5M Lakeview home listed by former Cubs player Kyle Hendricks goes under contract		</span>
+<span class="dfm-title metered">
+			As markets implode, US trading partners puzzle over whether there’s room for negotiations		</span>
+-------HEADLINES SCRAPED AT 10:18:16------
