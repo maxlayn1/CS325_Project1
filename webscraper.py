@@ -52,6 +52,8 @@ def store_scraped_headlines(headlines):
     file.write(f'-------HEADLINES SCRAPED AT {time.strftime("%H:%M:%S")}------\n')
     for headline in headlines:
         file.write(f'{headline}\n')
+    file.write('\n')
+    print('Headlines successfully stored')
         
 def choose_site_to_scrape():
     website_to_scrape = input('Choose a website to scrape: 1. Chicago Tribune   2. U.S. News\n')
