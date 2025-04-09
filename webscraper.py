@@ -3,10 +3,10 @@ import requests
 import time
 
 def main():
-    urls = read_url_file()
-    site_to_scrape = choose_site_to_scrape()
-    headlines = scrape_urls(urls, site_to_scrape)
-    store_scraped_headlines(headlines)
+    urls = read_url_file()                                                          # read the URLs from the file
+    site_to_scrape = choose_site_to_scrape()                                        # choose the site to scrape
+    headlines = scrape_urls(urls, site_to_scrape)                                   # scrape the headlines from the chosen site
+    store_scraped_headlines(headlines)                                              # store the scraped headlines in a file
     
 def read_url_file():
     with open('input_urls.txt', 'r') as file:
@@ -19,7 +19,7 @@ def scrape_urls(urls, site_to_scrape):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
     if (site_to_scrape == '1'):
         try:
-            response = requests.get(urls[0], headers=headers)
+            response = requests.get(urls[0], headers=headers)                       # get the HTML content
             response.raise_for_status()
             soup = bs4.BeautifulSoup(response.text, 'html.parser')
             headlines = soup.find_all('span', class_ = 'dfm-title')  
