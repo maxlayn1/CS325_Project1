@@ -1,13 +1,2 @@
 #-----THIS FILE SHOULD CONTAIN THE LLM'S RESPONSES TO THE HEADLINES IT WAS GIVEN------------LLM RESPONSE AT 14:41:02------
 
-#-------LLM RESPONSE AT 14:44:42------
-positive
-negative
-negative
-neutral
-positive
-neutral
-negative
-negative
-negative
-negative
