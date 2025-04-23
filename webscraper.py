@@ -47,7 +47,7 @@ def scrape_urls(urls, site_to_scrape):
 
 def store_scraped_headlines(headlines):
     file = open('scraped_headlines.txt', 'a')
-    file.write(f'-------HEADLINES SCRAPED AT {time.strftime("%H:%M:%S")}------\n')      # store the time of scraping
+    file.write(f'#-------HEADLINES SCRAPED AT {time.strftime("%H:%M:%S")}------\n')      # store the time of scraping
     for headline in headlines:
         file.write(f'{headline}\n')
     file.write('\n')

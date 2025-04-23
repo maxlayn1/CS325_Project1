@@ -1,7 +1,9 @@
 import subprocess                                                           #allows python to input terminal commands
 import time                                                                 #allows for listing time of LLM response in reponses.txt file
+import webscraper
 
 def main():           
+    #webscraper.main()                                                       #run webscraper.py to scrape headlines
     LLM_name = choose_LLM()                                                 #user chooses which LLM they want to use
     prompt_list = read_prompt_file()     
     clean_response_list = pass_prompt_to_LLM(prompt_list, LLM_name)         #prompt is passed to LLM and result is stored
@@ -20,7 +22,7 @@ def choose_LLM():                                                           #ask
         raise SystemExit(1)                                                 #crash program if unexpected input
 
 def read_prompt_file():                                                     #read prompts.txt, returning all the prompts in a list
-    with open('prompts.txt', 'r') as file:
+    with open('scraped_headlines.txt', 'r') as file:
         lines = file.readlines()
         lines = [line for line in lines if line.strip() and not line.strip().startswith('#')]  # skip empty lines and lines starting with '#'   
         return lines
@@ -42,7 +44,7 @@ def clean_LLM_response(unclean_response):                                   #cle
 
 def store_LLM_response(clean_response_list):                                #store LLM's responses in responses.txt                 
     file = open('responses.txt', 'a')
-    file.write(f'-------LLM RESPONSE AT {time.strftime("%H:%M:%S")}------\n')
+    file.write(f'#-------LLM RESPONSE AT {time.strftime("%H:%M:%S")}------\n')
     for response in clean_response_list:
         file.write(f'{response}\n')
 
