@@ -46,3 +46,5 @@ curl --version
 ```
 
 -webscraper.py would need to be augmented to scrape URLs other than those provided.
+
+-the '#' character at the top of text files keeps the line from being read as a prompt by the AI (do not remove!)
