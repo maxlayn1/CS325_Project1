@@ -56,5 +56,3 @@ def store_scraped_headlines(headlines):
 def choose_site_to_scrape():
     website_to_scrape = input('Choose a website to scrape: 1. Chicago Tribune   2. U.S. News\n')
     return website_to_scrape
-            
-main()

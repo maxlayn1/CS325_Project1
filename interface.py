@@ -3,7 +3,7 @@ import time                                                                 #all
 import webscraper
 
 def main():           
-    #webscraper.main()                                                       #run webscraper.py to scrape headlines
+    webscraper.main()                                                       #run webscraper.py to scrape headlines
     LLM_name = choose_LLM()                                                 #user chooses which LLM they want to use
     prompt_list = read_prompt_file()     
     clean_response_list = pass_prompt_to_LLM(prompt_list, LLM_name)         #prompt is passed to LLM and result is stored
