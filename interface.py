@@ -1,6 +1,37 @@
 import subprocess                                                           #allows python to input terminal commands
 import time                                                                 #allows for listing time of LLM response in reponses.txt file
 import webscraper
+from typing import Protocol
+
+class LLM(Protocol):
+    def query(self):
+        pass
+    def respond(self):
+        pass
+    
+class HeadlineLLM:
+    def query(self):
+        pass
+    def respond (self):
+        pass
+    def clean_response(self):
+        pass
+    def store_response(self):
+        pass
+    
+class FileHandler(Protocol):
+    def read(self):
+        pass
+    def write(self):
+        pass
+
+class TextFileHandler:
+    def read(self):
+        pass
+    def write(self):
+        pass
+    def clean(self):
+        pass
 
 def main():           
     webscraper.main()                                                       #run webscraper.py to scrape headlines
