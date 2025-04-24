@@ -1,6 +1,33 @@
 import bs4
 import requests
 import time
+from typing import Protocol
+
+class Scraper(Protocol):
+    def connect_to_site(self, website):
+        pass
+    def scrape(self, website):
+        pass
+    
+class HeadlineScraper:
+    def connect_to_site(self, site_to_scrape, urls):
+        pass
+    def scrape(self, site_to_scrape, urls):
+        pass
+
+class FileHandler(Protocol):
+    def read(self):
+        pass
+    def write(self):
+        pass
+    
+class URLHeadlineHandler:
+    def read(self):
+        pass
+    def write(self):
+        pass
+    def clean(self):
+        pass
 
 def main():
     urls = read_url_file()                                                          # read the URLs from the file
@@ -43,7 +70,6 @@ def scrape_urls(urls, site_to_scrape):
     else:
         print('Invalid site selected')
         exit(1)
-
 
 def store_scraped_headlines(headlines):
     file = open('scraped_headlines.txt', 'a')

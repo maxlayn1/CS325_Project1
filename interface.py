@@ -25,7 +25,7 @@ class FileHandler(Protocol):
     def write(self):
         pass
 
-class TextFileHandler:
+class HeadlineResponseHandler:
     def read(self):
         pass
     def write(self):
