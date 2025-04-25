@@ -9,37 +9,71 @@ class Scraper(Protocol):
     def scrape(self, website):
         pass
     
-class HeadlineScraper:
-    def connect_to_site(self, site_to_scrape, urls):
-        pass
-    def scrape(self, site_to_scrape, urls):
-        pass
-
 class FileHandler(Protocol):
     def read(self):
         pass
     def write(self):
         pass
     
+class HeadlineScraper:
+    def connect_to_site(self, site_to_scrape, urls):
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'}
+        if (site_to_scrape == '1'):                                                         # Chicago Tribune
+            response = requests.get(urls[0], headers=headers)                           # get the HTML content
+            response.raise_for_status()
+            soup = bs4.BeautifulSoup(response.text, 'html.parser')
+            return soup
+        elif (site_to_scrape == '2'):                                                       # U.S. News
+            response = requests.get(urls[1], headers=headers)
+            response.raise_for_status()
+            soup = bs4.BeautifulSoup(response.text, 'html.parser')
+            return soup
+        else:
+            print('Invalid site selected')
+            exit(1)
+    def scrape(self, site_to_scrape, soup):
+        all_headlines = []
+        if (site_to_scrape == '1'):
+            headlines = soup.find_all('span', class_ = 'dfm-title')  
+            all_headlines.extend([headline.text.strip() for headline in headlines[6:]])  # Add the headlines to the list                               
+            return all_headlines
+        elif (site_to_scrape == '2'):
+            h3s = soup.find_all('h3', class_='story-headline')
+            for h3 in h3s:
+                anchor = h3.find('a')                                               # Find the anchor tag within the h3
+                if anchor:
+                    all_headlines.append(anchor.text.strip())                   # Add the headline to the list
+            return all_headlines
+    def choose_site_to_scrape(self):
+        website_to_scrape = input('Choose a website to scrape: 1. Chicago Tribune   2. U.S. News\n')
+        return website_to_scrape
+    
 class URLHeadlineHandler:
     def read(self):
-        pass
-    def write(self):
-        pass
-    def clean(self):
-        pass
+        with open('input_urls.txt', 'r') as file:
+            lines = file.readlines()
+        return lines
+    def write(self, headlines):
+        file = open('scraped_headlines.txt', 'a')
+        file.write(f'#-------HEADLINES SCRAPED AT {time.strftime("%H:%M:%S")}------\n')      # store the time of scraping
+        for headline in headlines:
+            file.write(f'{headline}\n')
+        file.write('\n')
+        print('Headlines successfully stored')
+    def clean(self, lines):
+        lines = [line.strip() for line in lines if line.strip() and not line.strip().startswith('#')] # skip empty lines and lines starting with '#'
+        return lines
 
 def main():
-    urls = read_url_file()                                                          # read the URLs from the file
-    site_to_scrape = choose_site_to_scrape()                                        # choose the site to scrape
-    headlines = scrape_urls(urls, site_to_scrape)                                   # scrape the headlines from the chosen site
-    store_scraped_headlines(headlines)                                              # store the scraped headlines in a file
-    
-def read_url_file():
-    with open('input_urls.txt', 'r') as file:
-        lines = file.readlines()
-        lines = [line.strip() for line in lines if line.strip() and not line.strip().startswith('#')] # skip empty lines and lines starting with '#'
-    return lines
+    url_handler = URLHeadlineHandler()
+    scraper = HeadlineScraper()
+
+    urls = url_handler.read()
+    clean_urls = url_handler.clean(urls)
+    site_to_scrape = scraper.choose_site_to_scrape()
+    soup = scraper.connect_to_site(site_to_scrape, clean_urls)
+    headlines = scraper.scrape(site_to_scrape, soup)
+    url_handler.write(headlines)
         
 def scrape_urls(urls, site_to_scrape):
     all_headlines = []
@@ -70,15 +104,5 @@ def scrape_urls(urls, site_to_scrape):
     else:
         print('Invalid site selected')
         exit(1)
-
-def store_scraped_headlines(headlines):
-    file = open('scraped_headlines.txt', 'a')
-    file.write(f'#-------HEADLINES SCRAPED AT {time.strftime("%H:%M:%S")}------\n')      # store the time of scraping
-    for headline in headlines:
-        file.write(f'{headline}\n')
-    file.write('\n')
-    print('Headlines successfully stored')
         
-def choose_site_to_scrape():
-    website_to_scrape = input('Choose a website to scrape: 1. Chicago Tribune   2. U.S. News\n')
-    return website_to_scrape
+main()
