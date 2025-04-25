@@ -63,17 +63,6 @@ class URLHeadlineHandler:
     def clean(self, lines):
         lines = [line.strip() for line in lines if line.strip() and not line.strip().startswith('#')] # skip empty lines and lines starting with '#'
         return lines
-
-def main():
-    url_handler = URLHeadlineHandler()
-    scraper = HeadlineScraper()
-
-    urls = url_handler.read()
-    clean_urls = url_handler.clean(urls)
-    site_to_scrape = scraper.choose_site_to_scrape()
-    soup = scraper.connect_to_site(site_to_scrape, clean_urls)
-    headlines = scraper.scrape(site_to_scrape, soup)
-    url_handler.write(headlines)
         
 def scrape_urls(urls, site_to_scrape):
     all_headlines = []
@@ -104,5 +93,3 @@ def scrape_urls(urls, site_to_scrape):
     else:
         print('Invalid site selected')
         exit(1)
-        
-main()

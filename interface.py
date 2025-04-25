@@ -40,6 +40,16 @@ def main():
     clean_response_list = pass_prompt_to_LLM(prompt_list, LLM_name)         #prompt is passed to LLM and result is stored
     store_LLM_response(clean_response_list)                                 #LLM responses stored in responses.txt
     print('LLM RESPONSES STORED')                                           #indicate to the user that the script is done
+    
+    # url_handler = URLHeadlineHandler()
+    # scraper = HeadlineScraper()
+
+    # urls = url_handler.read()
+    # clean_urls = url_handler.clean(urls)
+    # site_to_scrape = scraper.choose_site_to_scrape()
+    # soup = scraper.connect_to_site(site_to_scrape, clean_urls)
+    # headlines = scraper.scrape(site_to_scrape, soup)
+    # url_handler.write(headlines)
 
 def choose_LLM():                                                           #ask whether user wants to use Gemma2-2b or llama3.2
     LLM = input('Choose an LLM: 1. Gemma2-2b   2. llama3.2\n')
