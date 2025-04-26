@@ -46,8 +46,10 @@ class HeadlineLLM:
             raise SystemExit(1)                                                         #crash program if unexpected input
 
 class HeadlineResponseHandler:
+    def __init__(self, filename):
+        self.filename = filename
     def read(self):
-        with open('scraped_headlines.txt', 'r') as file:
+        with open(self.filename, 'r') as file:
             lines = file.readlines()
             return lines
     def write(self, clean_response_list):
@@ -59,10 +61,15 @@ class HeadlineResponseHandler:
         lines = [line for line in lines if line.strip() and not line.strip().startswith('#')]  # skip empty lines and lines starting with '#'   
         return lines
 
+def clear_scraped_headlines():
+    file = open('scraped_headlines.txt', 'w')
+    file.write('#-----THIS FILE SHOULD CONTAIN HEADLINES SCRAPED BY BS4-----\n\n')
+
 def main():           
+    clear_scraped_headlines()
     
-    url_handler = webscraper.URLHeadlineHandler()
-    scraper = webscraper.HeadlineScraper()
+    url_handler: webscraper.FileHandler = webscraper.URLHeadlineHandler()
+    scraper: webscraper.Scraper = webscraper.HeadlineScraper()
     
     urls = url_handler.read()
     clean_urls = url_handler.clean(urls)
@@ -71,12 +78,11 @@ def main():
     headlines = scraper.scrape(site_to_scrape, soup)
     url_handler.write(headlines)
     
-    local_LLM = HeadlineLLM()
-    headline_handler = HeadlineResponseHandler()
+    local_LLM: LLM = HeadlineLLM()
+    headline_handler: FileHandler = HeadlineResponseHandler('scraped_headlines.txt')
     
     prompt_list = headline_handler.read()     
     clean_prompt_list = headline_handler.clean(prompt_list)
-    
     
     LLM_name = local_LLM.choose_LLM()                                                   #user chooses which LLM they want to use
     response_list = local_LLM.query(clean_prompt_list, LLM_name)
