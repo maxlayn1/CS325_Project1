@@ -58,7 +58,8 @@ class HeadlineResponseHandler:
         for response in clean_response_list:
             file.write(f'{response}\n')
     def clean(self, lines):
-        lines = [line for line in lines if line.strip() and not line.strip().startswith('#')]  # skip empty lines and lines starting with '#'   
+        #lines = [line for line in lines if line.strip() and not line.strip().startswith('#')]  # skip empty lines and lines starting with '#'   
+        lines = [line.strip() for line in lines if line.strip() and not line.strip().startswith('#')]
         return lines
 
 def clear_scraped_headlines():
