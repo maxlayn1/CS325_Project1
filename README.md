@@ -43,3 +43,9 @@ curl --version
 -the '#' character at the top of text files keeps the line from being read as a prompt by the AI (do not remove!)
 
 -scraped_headlines.txt can be viewed to ensure correct headline scraping. The file is overwritten with new headlines each time 'interface.py' is run.
+
+## Docker container version (ADVANCED USERS!)
+Container uses Debian Bullseye-slim OS, and already has both LLMs installed on it.
+```bash
+docker pull maxlayn1/headline_sentiment_app
+```
